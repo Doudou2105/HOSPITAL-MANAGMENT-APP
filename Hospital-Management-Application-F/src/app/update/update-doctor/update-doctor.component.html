@@ -1,0 +1,121 @@
+
+  <body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fa fa-hospital-o me-2"></i>Hospital-MG</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink="/views-page" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-calendar-alt me-2" ></i>Viws-Appointment</a>
+              
+                
+                <a routerLink="/homepage" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                        class="fas fa-power-off me-2" ></i>Logout</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Doctor page</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>{{doctor.fullName}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/doctor-page">Profile</a></li>
+                                <li><a class="dropdown-item" routerLink="/homepage">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container">
+                <form class="row g-3" (ngSubmit)="onSubmit()">
+                    <div class="col-md-4">
+                      <label for="validationDefault01" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="firstName"  required
+                      [(ngModel)]="doctor.fullName" name="fullName">
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address"  required
+                        [(ngModel)]="doctor.address" name="address">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Qualification</label>
+                        <input type="text" class="form-control" id="qualification"  required
+                        [(ngModel)]="doctor.qualification" name="qualification">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom14" class="form-label">Gender</label>
+                        <select  class="form-select" id="gender" required
+                        [(ngModel)]="doctor.gender" name="gender">
+                        <option selected disabled value=""></option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        </select>
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email"  required
+                        [(ngModel)]="doctor.email" name="email">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age"  required
+                        [(ngModel)]="doctor.age" name="age">
+                    </div>
+                 
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Phone</label>
+                        <input type="number" class="form-control" id="number"  required
+                        [(ngModel)]="doctor.number" name="number">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Photo</label>
+                        <input type="text" class="form-control" id="photograph"  required
+                        [(ngModel)]="doctor.photograph" name="photograph">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Attendance</label>
+                        <input type="text" class="form-control" id="attendance"  required
+                        [(ngModel)]="doctor.attendance" name="attendance">
+                    </div>
+                    
+                    <div class="col-12">
+                      <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+
+
+
+
+
+
+            </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+   
+</body>

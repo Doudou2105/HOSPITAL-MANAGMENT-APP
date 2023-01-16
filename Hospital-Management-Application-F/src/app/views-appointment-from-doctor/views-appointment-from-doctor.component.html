@@ -1,0 +1,155 @@
+
+  <body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fa fa-hospital-o me-2"></i>Hospital-MG</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink="/views-page" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-calendar-alt me-2" ></i>Viws-Appointment</a>
+              
+                
+                <a routerLink="/homepage" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                        class="fas fa-power-off me-2" ></i>Logout</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">View appointment</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search..."
+                    [(ngModel)]="filterTerm"
+                                             />
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i> {{doctor.fullName}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="">Profile</a></li>
+                                <li><a class="dropdown-item" routerLink="/homepage">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="main-box clearfix">
+                          <div class="table-responsive">
+                              <table class="table user-list">
+                                  <thead>
+                                      <tr>
+                                          <th><span>Patient</span></th>
+                                          <th class="text-center"><span>Status</span></th>
+                                          <th><span>Email</span></th>
+                                          <th><span>doctors</span></th>
+                                          <th><span>Gender</span></th>
+                                          <th><span>Blood</span></th>
+                                          <th><span> Date-Created</span></th>
+                                          <th><span>dateOfAppointment</span></th>
+                                          <th><span>appointmentStarTime</span></th>
+                                          <th><span>appointmentEndTime</span></th>
+                                         
+                                          <th><span>medical_issues</span></th>
+                                               
+                                          
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let appointment of appointments |filter: filterTerm">
+                                          <td>
+                                              <img src="{{appointment.photograph}}" alt="" >
+                                              <span class="user-subhead">{{appointment.firstName}}</span>&nbsp;
+                                              <span class="user-subhead">{{appointment.lastName}}</span>
+                                          </td>
+                                          <td >
+                                            <button type="button" class="btn btn-success" style="border-radius: 50px;" (click)="updateAppointment(appointment.appointment_id)">
+                                            <span class="label label-default" >{{appointment.status}}</span>
+                                            </button>
+                                        </td>  
+                                         
+                                          <td class="text-center">
+                                            <a href="">{{appointment.email}}</a>
+                                          </td>
+                                          <td>
+                                            {{appointment.doctorName}}
+                                          </td>
+                                          <td>
+                                            {{appointment.gender}}
+                                          </td>
+                                          
+                                          <td>
+                                              <span class="label label-default">{{appointment.blood}} </span>
+                                          </td>
+                                          <td>
+                                            {{appointment.createAt}}
+                                        </td>
+            
+                                        <td>
+                                            {{appointment.dateOfAppointment}}
+                                        </td>
+                                        <td>
+                                            {{appointment.appointmentStarTime}}
+                                        </td>
+                                        <td>
+                                            {{appointment.appointmentEndTime}}
+                                        </td>
+                                        <td>
+                                            {{appointment.medical_issues}}
+                                        </td>
+                                          
+                                          <td>
+                                              
+                                             <button type="button" class="btn btn-warning" routerLink="/prescribe-page">precribe</button>
+                                          </td>
+                                      </tr>
+                                     
+                                  </tbody>
+                              </table>
+                          </div>
+                        
+                      </div>
+                  </div>
+              </div>
+              </div>
+             
+
+
+
+
+
+
+            </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+   
+</body>
+
+  
+
+
+  

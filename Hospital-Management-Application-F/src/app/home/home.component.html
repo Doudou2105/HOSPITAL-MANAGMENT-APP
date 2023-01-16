@@ -1,0 +1,83 @@
+
+<header class="header-area overlay">
+    <nav class="navbar navbar-expand-md navbar-dark">
+		<div class="container">
+			<a routerLink="/homepage"class="navbar-brand">Hospital-Managment</a>
+			
+			<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+				<span class="menu-icon-bar"></span>
+				<span class="menu-icon-bar"></span>
+				<span class="menu-icon-bar"></span>
+			</button>
+			
+			<div id="main-nav" class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li><a href="#About Us" class="nav-item nav-link active">About</a></li>
+                    <li><a href="#Contact" class="nav-item nav-link active">Contact</a></li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						  Administration
+						</a>
+						<ul class="dropdown-menu">
+						  <li><a class="dropdown-item" routerLink="/adminLogin">LogIn</a></li>
+						</ul>
+					  </li>
+
+                      <li class="nav-item dropdown">
+						<a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						 Services
+						</a>
+						<ul class="dropdown-menu">
+						  <li><a class="dropdown-item" href="#Service-Doctor">Service-Doctor</a></li>
+                          <li><a class="dropdown-item" href="#Service-Receptionist">Service-Receptionist</a></li>
+						</ul>
+					  </li>
+                     
+                      <li class="nav-item dropdown">
+						<a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						  Connected
+						</a>
+						<ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/patientLogin">Patient</a></li>
+						  <li><a class="dropdown-item"  routerLink="/receptionistLogin">Receptionist</a></li>
+                          <li><a class="dropdown-item" routerLink="/doctorLogin">Doctor</a></li>
+						</ul>
+					  </li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="banner">
+		<div class="container">
+			<h1>Welcome to the Hospital Managment Online</h1>
+			<br>
+			
+		</div>
+	</div>
+</header>
+
+<main>
+
+<section id="Service-Receptionist" class="content">	
+    <app-service-receptionist></app-service-receptionist>
+</section>  
+       
+<section id="Service-Doctor" class="content">
+    <app-service-doctor></app-service-doctor>
+</section> 
+      
+<section id="About Us" class="content">
+    <app-about-us></app-about-us>
+</section>
+    
+ <section id="Contact" class="content">
+     <app-contact-us></app-contact-us>
+ </section>      
+
+
+</main>
+
+

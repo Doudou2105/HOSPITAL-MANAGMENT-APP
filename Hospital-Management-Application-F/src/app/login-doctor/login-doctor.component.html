@@ -1,0 +1,208 @@
+
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0" style="-webkit-box-shadow: 3px 11px 30px -3px rgba(0,0,0,0.65); 
+                box-shadow: 3px 11px 30px -3px rgba(0,0,0,0.65);">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Login</h3>
+                                </div>
+
+                                <h6 class="h5 mb-0">Welcome back!</h6>
+                                <p class="text-muted mt-2 mb-5">Enter your email address and password to access doctor panel.</p>
+
+                                <form  #loginform="ngForm" (ngSubmit)="loginDoctor()">
+                                    <div class="alert alert-danger" role="alert" *ngIf="msg">
+                                        <small class="text-danger">{{msg}}</small>
+                                    </div>
+                                   
+                                    
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" [(ngModel)]="doctor.email" class="form-control" id="email"name="email"placeholder=" please enter your email"  required pattern="^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$"
+                                        #email="ngModel"
+                                        [class.is-invalid]="email.invalid && email.touched">
+                                          <!-- <small class="text-danger"[class.d-none]="email.valid || email.untouched">Email is required field</small>--> 
+                                        <div *ngIf="email.errors && (email.invalid && email.touched)">
+                                            <small class="text-danger" *ngIf="email.errors">Email is required field</small>
+                                            <small class="text-danger" *ngIf="email.errors">Enter the valid  email </small>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Password</label>
+                                        <input type="password" [(ngModel)]="doctor.password" class="form-control" id="password"name="password"placeholder=" please enter your password"  
+                                        #password="ngModel"required
+                                        [class.is-invalid]="password.invalid && password.touched">
+                                        <small class="text-danger"[class.d-none]="password.valid || password.untouched">password is required field</small>
+                                    </div>
+                                    <button type="submit" [disabled]="loginform.form.invalid" class="btn btn-theme">Login</button>
+                                    &nbsp;
+                                    <button routerLink="/homepage" class="btn btn-theme">Back</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                    <h4 class="text-white mb-4">This is the Doctors Login</h4>
+                                    <p class="lead text-white">"Can only recommend it for the doctors."</p>
+                                    <p>- Doctor User</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+
+            <p class="text-muted text-center mt-3 mb-0">Don't have an account? <a  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="text-primary ml-1">register</a></p>
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary" >
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Doctor register</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+            <form class="needs-validation" novalidate  #registerform="ngForm"  (ngSubmit)="onRegister()" >
+               
+                
+
+                <label for="validationCustom06" class="form-label">qualification</label>
+                <input type="text" class="form-control" id="validationCustom06"  [(ngModel)]="doctor.qualification" class="form-control" id="qualification"name="qualification"placeholder=" please enter your qualification"  
+                #qualification="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid qualification.
+                </div>
+
+                <label for="validationCustom02" class="form-label">Name</label>
+                <input type="text" class="form-control" id="validationCustom02" 
+                [(ngModel)]="doctor.fullName" class="form-control" id="fullName"name="fullName"placeholder=" please enter your fullName"  
+                                        #fullName="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid last name.
+                </div>
+
+                <label for="validationCustom03" class="form-label">Email</label>
+                <input type="email" class="form-control" id="validationCustom03" 
+                [(ngModel)]="doctor.email" class="form-control" id="email"name="email"placeholder=" please enter your email"  
+                                        #email="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid email.
+                </div>
+
+                <label for="validationCustom04" class="form-label">Password</label>
+                <input type="password" class="form-control" id="validationCustom04"
+                [(ngModel)]="doctor.password" class="form-control" id="password"name="password"placeholder=" please enter your password"  
+                #password="ngModel"required
+                >
+                <div class="invalid-feedback">
+                    Please provide a valid password.
+                </div>
+
+               
+                <label for="validationCustom05" class="form-label">Gender</label>
+                <select class="form-select" id="validationCustom05"
+                [(ngModel)]="doctor.gender" class="form-control" id="gender"name="gender"placeholder=" please enter your gender"  
+                 #gender="ngModel"required>
+                <option selected disabled value="">Choose...</option>
+                <option>Male</option>
+                <option>Female</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid gender.
+                </div>
+
+                <label for="validationCustom06" class="form-label">Number</label>
+                <input type="number" class="form-control" id="validationCustom06" 
+                [(ngModel)]="doctor.number" class="form-control" id="number"name="number"placeholder=" please enter your number"  
+                #number="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid number.
+                </div>
+
+                <label for="validationCustom07" class="form-label">Age</label>
+                <input type="number" class="form-control" id="validationCustom07" 
+                [(ngModel)]="doctor.age" class="form-control" id="age"name="age"placeholder=" please enter your age"  
+                                        #age="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid age.
+                </div>
+
+                <label for="validationCustom08" class="form-label">Photo with Url</label>
+                <input type="text" class="form-control" id="validationCustom08" 
+                [(ngModel)]="doctor.photograph" class="form-control" id="photograph"name="photograph"placeholder=" please enter your photograph"  
+                                        #photograph="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid photo.
+                </div>
+
+                <label for="validationCustom09" class="form-label">Address</label>
+                <input type="text" class="form-control" id="validationCustom09" 
+                [(ngModel)]="doctor.address" class="form-control" id="address"name="address"placeholder=" please enter your address"  
+                                        #address="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid address.
+                </div>
+
+
+                <label for="validationCustom10" class="form-label">Salary</label>
+                <input type="number" class="form-control" id="validationCustom10"   [(ngModel)]="doctor.salary" class="form-control" id="salary"name="salary"laceholder=" please enter your salary"  
+                #salary="ngModel"required>
+                <div class="invalid-feedback">
+                    Please provide a valid Salary.
+                </div>
+
+              
+
+
+                <label for="validationCustom14" class="form-label">Attendance </label>
+                <select class="form-select" id="validationCustom14"   [(ngModel)]="doctor.attendance" class="form-control" id="attendance"name="attendance"placeholder=" please enter your attendance"  
+                #attendance="ngModel"required>
+                <option selected disabled value="">choose...</option>
+                <option>attendance</option>
+                <option>absence</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid attendance.
+                </div>
+
+
+
+                <br>
+                <div class="alert alert-danger" role="alert" *ngIf="exist">
+                    <small class="text-danger">{{exist}}</small>
+                </div>
+
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit"  [disabled]="registerform.form.invalid" class="btn btn-primary">Register</button>
+        </div>
+        </form>
+       </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,284 @@
+ <body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fa fa-hospital-o me-2"></i>Hospital-MG</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink=""(click)="goToAppointment(patientConnected.patient_id)" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-calendar-alt me-2" ></i>Appointment</a>
+                <a routerLink=""(click)="goToBill (patientConnected.patient_id)" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fa fa-file-text me-2" ></i>Bill</a>
+                
+                <a routerLink="/homepage" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                        class="fas fa-power-off me-2" ></i>Logout</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Appointment page</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search..."
+                    [(ngModel)]="filterTerm"
+                                             />
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>{{patient.firstName}} &nbsp;<span style="color:rgb(138, 138, 255) ;">{{patient.lastName}}</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/patient-page">Profile</a></li>
+                                <li><a class="dropdown-item" routerLink="/homepage">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <br>
+  <div class="container">
+    <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add appointment
+      </button>
+      
+    
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="main-box clearfix">
+                  <div class="table-responsive">
+                      <table class="table user-list">
+                          <thead>
+                              <tr>
+                                  <th><span>Patient</span></th>
+                                  <th class="text-center"><span>Status</span></th>
+                                  <th><span>Email</span></th>
+                                  <th><span>doctors</span></th>
+                                  <th><span>Gender</span></th>
+                                  <th><span>Blood</span></th>
+                                  <th><span> Date-Created</span></th>
+                                  <th><span>dateOfAppointment</span></th>
+                                  <th><span>appointmentStarTime</span></th>
+                                  <th><span>appointmentEndTime</span></th>
+                                 
+                                  <th><span>medical_issues</span></th>
+                                       
+                                  
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let appointment of appointments |filter: filterTerm">
+                                  <td>
+                                      <img src="{{appointment.photograph}}" alt="">
+                                      <span class="user-subhead">{{appointment.firstName}}</span>&nbsp;
+                                      <span class="user-subhead">{{appointment.lastName}}</span>
+                                  </td>
+                                  <td>
+                                    
+                                    <span style=" color: rgb(247, 14, 2);">{{appointment.status}}</span>
+                                </td>
+                                 
+                                  <td class="text-center">
+                                    <a href="">{{appointment.email}}</a>
+                                  </td>
+                                  <td>
+                                    {{appointment.doctorName}}
+                                  </td>
+                                  <td>
+                                    {{appointment.gender}}
+                                  </td>
+                                  
+                                  <td>
+                                      <span class="label label-default">{{appointment.blood}} </span>
+                                  </td>
+                                  <td>
+                                    {{appointment.createAt}}
+                                </td>
+    
+                                <td>
+                                    {{appointment.dateOfAppointment}}
+                                </td>
+                                <td>
+                                    {{appointment.appointmentStarTime}}
+                                </td>
+                                <td>
+                                    {{appointment.appointmentEndTime}}
+                                </td>
+                                <td>
+                                    {{appointment.medical_issues}}
+                                </td>
+                                  
+                                  <td style="width: 20%;">
+                                     
+                                      
+                                
+                                  </td>
+                              </tr>
+                             
+                          </tbody>
+                      </table>
+                  </div>
+                
+              </div>
+          </div>
+      </div>
+      </div>
+    
+    
+    </div> 
+             
+
+
+
+
+
+
+            </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+   
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Take Appointment</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+      <div class="container">
+            <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+                <label for="dateOfAppointment" class="form-label">dateOfAppointment</label>
+                <input type="date" class="form-control" id="dateOfAppointment" required
+                [(ngModel)]="appointment.dateOfAppointment" name="dateOfAppointment">
+                
+                <div class="invalid-feedback">
+                    Please provide a valid dateOfAppointment.
+                </div>
+
+                <label for="appointmentStarTime" class="form-label">appointmentStarTime</label>
+                <input type="time" class="form-control" id="appointmentStarTime" required
+                [(ngModel)]="appointment.appointmentStarTime"name="appointmentStarTime">
+                <div class="invalid-feedback">
+                    Please provide a valid appointmentStarTime.
+                </div>
+
+                <label for="Email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required
+                [(ngModel)]="appointment.email" name="email">
+                <div class="invalid-feedback">
+                    Please provide a valid email.
+                </div>
+
+
+                <label for="appointmentEndTime" class="form-label">appointmentEndTime</label>
+                <input type="time" class="form-control" id="appointmentEndTime" required
+                [(ngModel)]="appointment.appointmentEndTime" name="appointmentEndTime">
+                <div class="invalid-feedback">
+                    Please provide a valid appointmentEndTime.
+                </div>
+
+                <label for="medical_issues" class="form-label">medical_issues</label>
+                <input type="text" class="form-control" id="medical_issues" required
+                [(ngModel)]="appointment.medical_issues"name="medical_issues">
+                <div class="invalid-feedback">
+                    Please provide a valid medical_issues.
+                </div>
+
+               
+                <label for="Gender of the patient" class="form-label">Gender of the patient</label>
+                <select class="form-select" id="gender" required 
+                [(ngModel)]="appointment.gender" name="gender">
+                <option selected disabled value="">Choose...</option>
+                <option>Male</option>
+                <option>Female</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid gender.
+                </div>
+
+                <label for="FirstName of the patient " class="form-label">FirstName of the patient </label>
+                <input type="text" class="form-control" id="firstName" required
+                [(ngModel)]="appointment.firstName" name="firstName">
+                <div class="invalid-feedback">
+                    Please provide a valid .
+                </div>
+
+                <label for="LasttName of the patient" class="form-label">LasttName of the patient</label>
+                <input type="text" class="form-control" id="lastName" required
+                [(ngModel)]="appointment.lastName" name="lastName">
+                <div class="invalid-feedback">
+                    Please provide a valid .
+                </div>
+
+                <label for="validationCustom08" class="form-label">Photo with Url</label>
+                <input type="text" class="form-control" id="photograph" required
+                [(ngModel)]="appointment.photograph" name="photograph">
+                <div class="invalid-feedback">
+                    Please provide a valid photo.
+                </div>
+
+                    
+                <label for="validationCustom09" class="form-label">Blood</label>
+                <input type="text" class="form-control" id="blood" required
+                [(ngModel)]="appointment.blood" name="blood">
+                <div class="invalid-feedback">
+                    Please provide a valid blood.
+                </div>
+
+                <label for="validationCustom14" class="form-label">List doctors available </label>
+                <select class="form-select" id="doctorName" required 
+                [(ngModel)]="appointment.doctorName" name="doctorName">
+                <option selected disabled value=""></option>
+                
+                <option *ngFor="let doctor of doctors">{{doctor.fullName}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid doctor.
+                </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Send</button>
+        </div>
+        </form>
+       </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,82 @@
+body{margin-top:20px;}
+.counter_feature {
+    background-image: url("https://via.placeholder.com/280x280/48D1CC/000000");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: top center;
+	position: relative;
+    margin-top:120px;
+}
+.counter_feature:before {
+    background-image: url("https://www.foundationeducation.edu.au/sites/default/files/article/field_image/blog%205%20reasons%20medical%20receptionist%20jobs%20are%20on%20the%20rise.jpg");
+	opacity:0.8;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.single-project {
+	padding: 60px 40px;
+	background: #19d3f4;
+	margin-top: -100px;
+	border-right: 1px solid #19d3f4;
+}
+@media only screen and (max-width:768px){
+.single-project {margin-top: -60px;}
+}
+.single-project span {
+	font-size: 40px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+.single-project h2 {
+	font-weight: 700;
+	font-size: 50px;
+}
+.single-project h4 {
+	margin-bottom: 0;
+	font-size:16px;
+}
+.mfp-iframe-holder .mfp-content {
+  line-height: 0;
+  margin-top: 55px;
+  max-width: 900px;
+  width: 100%;
+}
+.video_btn {
+	padding:150px 0;
+	position: relative;
+	border:15px solid #fff;
+	margin-top: 100px;
+	margin-bottom:-100px;
+	box-shadow:0 10px 40px -10px rgba(0,64,128,.09);
+}
+.video_btn h3 {
+	background: #b5f3fd;
+	padding: 30px;
+	margin: 0 40px;
+	line-height: 40px;
+	margin-bottom: 30px;
+	text-transform: capitalize;
+	font-weight: 600;
+}
+.video_btn a  {
+background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+border: 10px solid rgba(0, 0, 0, 0.05);
+border-radius: 100px;
+color: #ffaa17;
+display: block;
+font-size: 24px;
+height: 100px;
+line-height: 90px;
+margin-bottom: auto;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 100px;
+}

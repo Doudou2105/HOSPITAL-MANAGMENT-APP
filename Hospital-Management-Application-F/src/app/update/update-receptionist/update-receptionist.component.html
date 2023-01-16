@@ -1,0 +1,123 @@
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fa fa-hospital-o me-2"></i>Hospital-MG</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink="/listAppointment-page" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-calendar-alt me-2" ></i>List-Appointment</a>
+                <a routerLink="/listDoctor-page" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-user-nurse me-2" ></i>List-doctor</a>
+                        
+                
+                <a routerLink="/homepage" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                        class="fas fa-power-off me-2" ></i>Logout</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Receptionist page</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>{{receptionist.name}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/receptionist-page">Profile</a></li>
+                                <li><a class="dropdown-item" routerLink="/homepage">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <br>
+  
+      
+            <div class="container">
+                <form class="row g-3" (ngSubmit)="onSubmit()">
+                    <div class="col-md-4">
+                      <label for="validationDefault01" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="name"  required
+                      [(ngModel)]="receptionist.name" name="name">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="validationDefault02" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email"  required
+                      [(ngModel)]="receptionist.email" name="email">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address"  required
+                        [(ngModel)]="receptionist.address" name="address">
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label for="validationCustom14" class="form-label">Gender</label>
+                        <select  class="form-select" id="gender" required
+                        [(ngModel)]="receptionist.gender" name="gender">
+                        <option selected disabled value=""></option> 
+                        <option>Male</option>
+                        <option>Female</option>
+                        </select>
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">birthday</label>
+                        <input type="date" class="form-control" id="birthday"  required
+                        [(ngModel)]="receptionist.birthday" name="birthday">
+                    </div>
+                  
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Photo</label>
+                        <input type="text" class="form-control" id="photogroph"  required
+                        [(ngModel)]="receptionist.photogroph" name="photogroph">
+                    </div>
+                    
+                    <div class="col-12">
+                      <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+
+
+
+
+            </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+   
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
